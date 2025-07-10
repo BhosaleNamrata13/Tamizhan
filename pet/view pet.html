@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Available Pets – PetConnect</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+   <style>
+         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .pet-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: scale(1.03);
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #4facfe;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .mobile-menu.open {
+            max-height: 500px;
+        }
+        
+        .pet-price {
+            color: #10b981;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+
+    <!-- (Navigation and Hero sections remain the same) -->
+        <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <i class="fas fa-paw text-3xl text-blue-500 mr-2"></i>
+                <span class="text-2xl font-bold text-gray-800">PetConnect</span>
+            </div>
+            
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex space-x-8">
+                <a href="petcon.html" class="nav-link text-gray-600 hover:text-blue-500">Home</a>
+                <a href="petcon.html#pets" class="nav-link text-gray-600 hover:text-blue-500">Find Pets</a>
+                <a href="petcon.html#services" class="nav-link text-gray-600 hover:text-blue-500">Services</a>
+                <a href="about.html" class="nav-link text-gray-600 hover:text-blue-500">About</a>
+                <a href="contact.html" class="nav-link text-gray-600 hover:text-blue-500 ">Contact</a>
+            </div>
+            
+            <div class="hidden md:block">
+                <a href="adopt.html" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition duration-300">
+                    Adopt Now
+                </a>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="md:hidden focus:outline-none">
+                <i class="fas fa-bars text-gray-600 text-2xl"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu md:hidden bg-white px-4">
+            <div class="flex flex-col space-y-3 py-4">
+                <a href="petconnect.html" class="text-gray-600 hover:text-blue-500">Home</a>
+                <a href="petconnect.html#pets" class="text-gray-600 hover:text-blue-500">Find Pets</a>
+                <a href="petconnect.html#services" class="text-gray-600 hover:text-blue-500">Services</a>
+                <a href="about.html" class="text-gray-600 hover:text-blue-500">About</a>
+                <a href="contact.html" class="text-blue-500 font-semibold">Contact</a>
+                <a href="adopt.html" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg mt-2 transition duration-300">
+                    Adopt Now
+                </a>
+            </div>
+        </div>
+    </nav>
+
+     
+    <body class="bg-gray-100 font-sans">
+
+  <div class="max-w-7xl mx-auto px-4 py-10">
+    <h1 class="text-3xl font-bold mb-8 text-center text-blue-600">Meet Our Adorable Pets</h1>
+
+    <!-- Pets Grid -->
+    <section id="pets-grid" class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <!-- (Filter buttons and sort section remain the same) -->
+            
+            <!-- Pets -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                <!-- Pet 1 -->
+                <div class="pet-card bg-white rounded-xl shadow-md overflow-hidden transition duration-300">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1561037404-61cd46aa615b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                             alt="Golden Retriever" 
+                             class="w-full h-full object-cover">
+                        <div class="pet-status available">Available</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-gray-800">Buddy</h3>
+                            <span class="text-sm text-gray-500"><i class="fas fa-dog mr-1"></i> Dog</span>
+                        </div>
+                        <div class="flex items-center mb-2">
+                            <i class="fas fa-map-marker-alt text-gray-400 mr-2"></i>
+                            <span class="text-gray-600">Mumbai</span>
+                        </div>
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-rupee-sign text-gray-400 mr-2"></i>
+                            <span class="pet-price">₹8,500</span>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-sm">Buddy is a playful 2-year-old Golden Retriever who loves long walks and cuddles.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-blue-500 font-semibold text-sm">Male • 2 years</span>
+                            <!--<button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-sm transition duration-300">
+                                Meet Buddy
+                            </button>-->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pet 2 -->
+                <div class="pet-card bg-white rounded-xl shadow-md overflow-hidden transition duration-300">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1533738363-b7f9aef128ce?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=735&q=80" 
+                             alt="Fluffy Cat" 
+                             class="w-full h-full object-cover">
+                        <div class="pet-status available">Available</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-gray-800">Mittens</h3>
+                            <span class="text-sm text-gray-500"><i class="fas fa-cat mr-1"></i> Cat</span>
+                        </div>
+                        <div class="flex items-center mb-2">
+                            <i class="fas fa-map-marker-alt text-gray-400 mr-2"></i>
+                            <span class="text-gray-600">Delhi</span>
+                        </div>
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-rupee-sign text-gray-400 mr-2"></i>
+                            <span class="pet-price">₹5,200</span>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-sm">Mittens is a sweet 3-year-old domestic shorthair who loves sunny spots and gentle pets.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-blue-500 font-semibold text-sm">Female • 3 years</span>
+                            <!--<button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-sm transition duration-300">
+                                Meet Mittens
+                            </button>-->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pet 3 -->
+                <div class="pet-card bg-white rounded-xl shadow-md overflow-hidden transition duration-300">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="rabbit2.jpg" 
+                             alt="Rabbit" 
+                             class="w-full h-full object-cover">
+                        <div class="pet-status pending">Pending</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-gray-800">Thumper</h3>
+                            <span class="text-sm text-gray-500"><i class="fas fa-paw mr-1"></i> Rabbit</span>
+                        </div>
+                        <div class="flex items-center mb-2">
+                            <i class="fas fa-map-marker-alt text-gray-400 mr-2"></i>
+                            <span class="text-gray-600">Bangalore</span>
+                        </div>
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-rupee-sign text-gray-400 mr-2"></i>
+                            <span class="pet-price">₹3,800</span>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-sm">Thumper is a gentle 1-year-old rabbit who enjoys fresh greens and hopping around.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-blue-500 font-semibold text-sm">Male • 1 year</span>
+                            <!--<button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-sm transition duration-300">
+                                Meet Thumper
+                            </button>-->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pet 4 -->
+                <div class="pet-card bg-white rounded-xl shadow-md overflow-hidden transition duration-300">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="Dog.jpg" 
+                             alt="Beagle" 
+                             class="w-full h-full object-cover">
+                        <div class="pet-status available">Available</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-gray-800">Max</h3>
+                            <span class="text-sm text-gray-500"><i class="fas fa-dog mr-1"></i> Dog</span>
+                        </div>
+                        <div class="flex items-center mb-2">
+                            <i class="fas fa-map-marker-alt text-gray-400 mr-2"></i>
+                            <span class="text-gray-600">Chennai</span>
+                        </div>
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-rupee-sign text-gray-400 mr-2"></i>
+                            <span class="pet-price">₹7,200</span>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-sm">Max is a 4-year-old Beagle with a great nose and loves following scents.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-blue-500 font-semibold text-sm">Male • 4 years</span>
+                            <!--<button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-sm transition duration-300">
+                                Meet Max
+                            </button>-->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pet 5 -->
+                <div class="pet-card bg-white rounded-xl shadow-md overflow-hidden transition duration-300">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1143&q=80" 
+                             alt="Persian Cat" 
+                             class="w-full h-full object-cover">
+                        <div class="pet-status adopted">Adopted</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-gray-800">Snowball</h3>
+                            <span class="text-sm text-gray-500"><i class="fas fa-cat mr-1"></i> Cat</span>
+                        </div>
+                        <div class="flex items-center mb-2">
+                            <i class="fas fa-map-marker-alt text-gray-400 mr-2"></i>
+                            <span class="text-gray-600">Hyderabad</span>
+                        </div>
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-rupee-sign text-gray-400 mr-2"></i>
+                            <span class="pet-price">₹6,500</span>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-sm">Snowball is a beautiful 2-year-old Persian cat who enjoys being brushed.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-blue-500 font-semibold text-sm">Female • 2 years</span>
+                            <!--<button class="bg-gray-400 text-white px-4 py-2 rounded-lg text-sm cursor-not-allowed" disabled>
+                                Adopted
+                            </button>-->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pet 6 -->
+                <div class="pet-card bg-white rounded-xl shadow-md overflow-hidden transition duration-300">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="husky.jpg" 
+                             alt="Horse" 
+                             class="w-full h-full object-cover">
+                        <div class="pet-status available">Available</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-gray-800">pippin</h3>
+                            <span class="text-sm text-gray-500"><i class="fas fa-horse mr-1"></i>Dog</span>
+                        </div>
+                        <div class="flex items-center mb-2">
+                            <i class="fas fa-map-marker-alt text-gray-400 mr-2"></i>
+                            <span class="text-gray-600">Jaipur</span>
+                        </div>
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-rupee-sign text-gray-400 mr-2"></i>
+                            <span class="pet-price">₹3,000</span>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-sm">pippin is a stunning 8 months Husky with blue eyes who loves cold weather.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-blue-500 font-semibold text-sm">Male • 8 months</span>
+                            <!--<button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-sm transition duration-300">
+                                Meet Spirit
+                            </button>-->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pet 7 -->
+                <div class="pet-card bg-white rounded-xl shadow-md overflow-hidden transition duration-300">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="parrot2.webp" 
+                             alt="Parrot" 
+                             class="w-full h-full object-cover">
+                        <div class="pet-status available">Available</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-gray-800">Rio</h3>
+                            <span class="text-sm text-gray-500"><i class="fas fa-dove mr-1"></i> Parrot</span>
+                        </div>
+                        <div class="flex items-center mb-2">
+                            <i class="fas fa-map-marker-alt text-gray-400 mr-2"></i>
+                            <span class="text-gray-600">Kolkata</span>
+                        </div>
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-rupee-sign text-gray-400 mr-2"></i>
+                            <span class="pet-price">₹4,500</span>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-sm">Rio is a vibrant 2-year-old parrot that can mimic sounds and loves fruits.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-blue-500 font-semibold text-sm">Male • 2 years</span>
+                            <!--<button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-sm transition duration-300">
+                                Meet Rio
+                            </button>-->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pet 8 -->
+                <div class="pet-card bg-white rounded-xl shadow-md overflow-hidden transition duration-300">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1517423568366-8b83523034fd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=735&q=80" 
+                             alt="Husky" 
+                             class="w-full h-full object-cover">
+                        <div class="pet-status available">Available</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-gray-800">Luna</h3>
+                            <span class="text-sm text-gray-500"><i class="fas fa-dog mr-1"></i> Dog</span>
+                        </div>
+                        <div class="flex items-center mb-2">
+                            <i class="fas fa-map-marker-alt text-gray-400 mr-2"></i>
+                            <span class="text-gray-600">Ahmedabad</span>
+                        </div>
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-rupee-sign text-gray-400 mr-2"></i>
+                            <span class="pet-price">₹12,000</span>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-sm">Luna is a stunning 5-year-old Husky with blue eyes who loves cold weather.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-blue-500 font-semibold text-sm">Female • 5 years</span>
+                            <!--<button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-sm transition duration-300">
+                                Meet Luna
+                            </button>-->
+                        </div >
+                        
+                        
+            
+      
+                        
+
+      
+
+    </div>
+  </div>
+
+</body>
+</html>

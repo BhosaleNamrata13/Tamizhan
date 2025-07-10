@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - PetConnect</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .about-gradient {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4f1fe 100%);
+        }
+        
+        .mission-bg {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                        url('https://images.unsplash.com/photo-1444212477490-ca407925329e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1528&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .values-card {
+            transition: all 0.3s ease;
+        }
+        
+        .values-card:hover {
+            transform: scale(1.02);
+            background-color: #ebf8ff;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #4facfe;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        
+        .mobile-menu.open {
+            max-height: 500px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 60px;
+            margin-bottom: 30px;
+        }
+        
+        .timeline-icon {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #4facfe;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .timeline-content {
+            position: relative;
+            padding-bottom: 20px;
+            border-left: 2px solid #e2e8f0;
+        }
+        
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            left: -2px;
+            top: 0;
+            height: 20px;
+            width: 2px;
+            background-color: #4facfe;
+        }
+        
+        .timeline-date {
+            font-weight: 500;
+            color: #4facfe;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <i class="fas fa-paw text-3xl text-blue-500 mr-2"></i>
+                <span class="text-2xl font-bold text-gray-800">PetConnect</span>
+            </div>
+            
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex space-x-8">
+                <a href="petconnect.html" class="nav-link text-gray-600 hover:text-blue-500">Home</a>
+                <a href="petconnect.html#pets" class="nav-link text-gray-600 hover:text-blue-500">Find Pets</a>
+                <a href="petconnect.html#services" class="nav-link text-gray-600 hover:text-blue-500">Services</a>
+                <a href="about.html" class="nav-link text-gray-600 hover:text-blue-500">About</a>
+                <a href="contect.html" class="nav-link text-gray-600 hover:text-blue-500">Contact</a>
+            </div>
+            
+            <div class="hidden md:block">
+                <a href="adopt.html" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition duration-300">
+                    Adopt Now
+                </a>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="md:hidden focus:outline-none">
+                <i class="fas fa-bars text-gray-600 text-2xl"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu md:hidden bg-white px-4">
+            <div class="flex flex-col space-y-3 py-4">
+                <a href="petconnect.html" class="text-gray-600 hover:text-blue-500">Home</a>
+                <a href="petconnect.html#pets" class="text-gray-600 hover:text-blue-500">Find Pets</a>
+                <a href="petconnect.html#services" class="text-gray-600 hover:text-blue-500">Services</a>
+                <a href="about.html" class="text-gray-600 hover:text-blue-500">About</a>
+                <a href="contect.html" class="text-gray-600 hover:text-blue-500">Contact</a>
+                <a href="adopt.html" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg mt-2 transition duration-300">
+                    Adopt Now
+                </a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="about-gradient py-16 md:py-24">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-6">Our Story</h1>
+                    <p class="text-lg text-gray-600 mb-8">Founded in 2015, PetConnect began with a simple mission: to create connections between loving families and pets in need of forever homes.</p>
+                    <div class="flex space-x-4">
+                        <a href="#mission" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold transition duration-300 inline-flex items-center">
+                            Our Mission <i class="fas fa-arrow-down ml-2"></i>
+                        </a>
+                        <a href="#team" class="border-2 border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white px-6 py-3 rounded-lg font-semibold transition duration-300 inline-flex items-center">
+                            Meet Our Team <i class="fas fa-users ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <img src="https://images.unsplash.com/photo-1583512603805-3cc6b41f3edb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80" 
+                         alt="Founders with rescue pets" 
+                         class="rounded-lg shadow-xl w-full max-w-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Mission Section -->
+    <section id="mission" class="mission-bg text-white py-20">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl font-bold mb-6">Our Mission & Vision</h2>
+                <p class="text-xl mb-8">At PetConnect, we believe every pet deserves a loving home and every family deserves the joy of pet companionship. Our mission is to bridge the gap between homeless pets and caring adopters through responsible matching, education, and ongoing support.</p>
+                <div class="flex justify-center">
+                    <div class="bg-white text-blue-500 px-6 py-2 rounded-full font-semibold inline-block">
+                        Saving Lives, One Pet at a Time
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Values Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Our Core Values</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">These principles guide everything we do at PetConnect</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Value 1 -->
+                <div class="values-card bg-gray-50 rounded-lg p-8 text-center">
+                    <div class="bg-blue-100 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-heart text-blue-500 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Compassion</h3>
+                    <p class="text-gray-600">We approach every animal and every adopter with empathy, understanding, and kindness.</p>
+                </div>
+                
+                <!-- Value 2 -->
+                <div class="values-card bg-gray-50 rounded-lg p-8 text-center">
+                    <div class="bg-blue-100 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-shield-alt text-blue-500 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Responsibility</h3>
+                    <p class="text-gray-600">We take our role in animal welfare seriously, ensuring every adoption is the right match.</p>
+                </div>
+                
+                <!-- Value 3 -->
+                <div class="values-card bg-gray-50 rounded-lg p-8 text-center">
+                    <div class="bg-blue-100 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-handshake text-blue-500 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Community</h3>
+                    <p class="text-gray-600">We foster connections between pet lovers and work collaboratively with local shelters.</p>
+                </div>
+                
+                <!-- Value 4 -->
+                <div class="values-card bg-gray-50 rounded-lg p-8 text-center">
+                    <div class="bg-blue-100 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-graduation-cap text-blue-500 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Education</h3>
+                    <p class="text-gray-600">We provide resources to help adopters become informed, responsible pet owners.</p>
+                </div>
+                
+                <!-- Value 5 -->
+                <div class="values-card bg-gray-50 rounded-lg p-8 text-center">
+                    <div class="bg-blue-100 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-star text-blue-500 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Quality Care</h3>
+                    <p class="text-gray-600">We ensure all pets receive proper medical attention, nutrition, and enrichment.</p>
+                </div>
+                
+                <!-- Value 6 -->
+                <div class="values-card bg-gray-50 rounded-lg p-8 text-center">
+                    <div class="bg-blue-100 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-infinity text-blue-500 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Lifelong Support</h3>
+                    <p class="text-gray-600">Our commitment continues after adoption with training resources and veterinary partnerships.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+<section id="team" class="py-16 bg-gray-100">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-gray-800 mb-4">Meet Our Team</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto">Our dedicated team works tirelessly to connect pets with loving families.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Team Member 1 -->
+            <div class="team-card bg-white rounded-lg shadow-md p-6 text-center transition-transform duration-300">
+                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Team Member 1" class="w-24 h-24 mx-auto rounded-full mb-4">
+                <h3 class="text-xl font-semibold text-gray-800">Namrata Bhosale</h3>
+                <p class="text-gray-500">Founder & CEO</p>
+            </div>
+
+            <!-- Team Member 2 -->
+            <div class="team-card bg-white rounded-lg shadow-md p-6 text-center transition-transform duration-300">
+                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Team Member 2" class="w-24 h-24 mx-auto rounded-full mb-4">
+                <h3 class="text-xl font-semibold text-gray-800">Vedant Bhosale</h3>
+                <p class="text-gray-500">Head of Animal Welfare</p>
+            </div>
+
+            <!-- Team Member 3 -->
+            <div class="team-card bg-white rounded-lg shadow-md p-6 text-center transition-transform duration-300">
+                <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Team Member 3" class="w-24 h-24 mx-auto rounded-full mb-4">
+                <h3 class="text-xl font-semibold text-gray-800">Shobha Bhosale</h3>
+                <p class="text-gray-500">Community Manager</p>
+            </div>
+
+            
+        </div>
+    </div>
+</section>
+
+    
+    
